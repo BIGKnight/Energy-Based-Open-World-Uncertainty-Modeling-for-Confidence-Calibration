@@ -1,0 +1,55 @@
+description: ebm-fairseq
+
+target:
+  service: amlk8s
+#   name: itpscusv100cl
+#   name: itplabrr1cl1
+  name: itpeusp100cl
+#   name: itplabrr1cl1 
+#   name: itpeastusv100cl2
+#   name: itpeastusv100cl
+#   name: itpscusv100cl
+#   name: itplabrr1cl1
+  vc: resrchvc
+  
+
+environment:
+  image: yezhenwang/yezhens_workstation:v1.7
+
+code:
+  local_dir: /home/v-yezhenwang/teamdrive/msrashaiteamdrive/users/yezhenwang/Yezhens_CodeBase/EOWS
+
+data:
+  remote_dir: data
+  
+jobs:
+- name: eow-softmax-start-epoch-8-sigma-1e-2-ebm_weight-1e-1-total-epoch-15
+  sku: G1
+  sku_count: 1
+  command:
+  - MKL_THREADING_LAYER=GNU
+  - bash run.sh $$AMLT_DATA_DIR 8 15 0.01 --ebm_weight 0.1
+- name: eow-softmax-start-epoch-8-sigma-5e-2-ebm_weight-1e-1-total-epoch-15
+  sku: G1
+  sku_count: 1
+  command:
+  - MKL_THREADING_LAYER=GNU
+  - bash run.sh $$AMLT_DATA_DIR 8 15 0.05 --ebm_weight 0.1
+- name: eow-softmax-start-epoch-8-sigma-1e-2-ebm_weight-1-total-epoch-15
+  sku: G1
+  sku_count: 1
+  command:
+  - MKL_THREADING_LAYER=GNU
+  - bash run.sh $$AMLT_DATA_DIR 8 15 0.01 --ebm_weight 1
+- name: eow-softmax-start-epoch-8-sigma-1e-2-ebm_weight-1e-2-total-epoch-15
+  sku: G1
+  sku_count: 1
+  command:
+  - MKL_THREADING_LAYER=GNU
+  - bash run.sh $$AMLT_DATA_DIR 8 15 0.01 --ebm_weight 0.01
+- name: eow-softmax-start-epoch-8-sigma-5e-2-ebm_weight-1e-2-total-epoch-15
+  sku: G1
+  sku_count: 1
+  command:
+  - MKL_THREADING_LAYER=GNU
+  - bash run.sh $$AMLT_DATA_DIR 8 15 0.05 --ebm_weight 0.01
