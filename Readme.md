@@ -1,5 +1,6 @@
 # EOW-Softmax
-This code is for the paper ["Energy-Based Open-World Uncertainty Modeling for Confidence Calibration"](https://arxiv.org/abs/2107.12628). accepted by ICCV21.
+This code is for the paper ["Energy-Based Open-World Uncertainty Modeling for Confidence Calibration"](https://arxiv.org/abs/2107.12628). 
+Accepted by ICCV21.
 ## Usage
 Commnd example for WideResnet28x10 on CiFAR100. 
 ```python
